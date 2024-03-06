@@ -2,9 +2,9 @@
 
 ## Introduction
 
-*This challenge was originally made as a preparation for a job interview.*  
+*This challenge was originally made as a preparation for a job interview. I did also other versions for training including one using object-oriented (Javascript) and test driven design (Jasmine) [here](https://replit.com/@pcolt/Rovers-on-Mars-with-classes-and-Jasmine-tests?v=1#index.js) on Replit*  
 
-You can find many versions of this challenge online looking for "Mars Rover Challenge". This one is quite challenging because it expects more than one rover to be landed, and each one with a different initial position and a different series of instruction on how to move on the surface. It has also corner cases like a rover landed with no movement instructions.
+You can find many versions of this challenge online looking for "Mars Rover Challenge". This one is quite challenging because it expects more than one rover to be landed, and each one with a different initial position and a different series of instruction on how to move on the surface. It also has corner cases like a rover landed with no movement instructions.
 
 ## The original challenge statement
 
