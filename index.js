@@ -1,15 +1,9 @@
 //const mars = require("./mars.js")
-const nasaMission = require("./nasa.js")
+const nasaMission = require('./nasa.js')
+const input = require('./inputs.js')
 
-const input = `
-5 5
-1 2 N
-LMLMLMLMM
-3 3 E
-MMRMMRMRRM
-`
-
+console.log('input: ', input)
 //mars.marsRover(input)
 
 const output = nasaMission.sendRovers(input)
-console.log("\noutput: ", output)
+console.log('\noutput: ', output)

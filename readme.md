@@ -1,4 +1,12 @@
-# Mars Rover
+# Mars Rover Challenge
+
+## Introduction
+
+*This challenge was originally made as a preparation for a job interview.*  
+
+You can find many versions of this challenge online looking for "Mars Rover Challenge". This one is quite challenging because it expects more than one rover to be landed, and each one with a different initial position and a different series of instruction on how to move on the surface. It has also corner cases like a rover landed with no movement instructions.
+
+## The original challenge statement
 
 A squad of robotic rovers are to be landed by NASA on a plateau on Mars. This plateau, which is curiously rectangular, must be navigated by the rovers so that their on-board cameras can get a complete view of the surrounding terrain to send back to Earth.
 
@@ -8,7 +16,7 @@ In order to control a rover, NASA sends a simple string of letters. The possible
 
 Assume that the square directly North from (x, y) is (x, y+1).
 
-INPUT:
+### INPUT:
 
 The first line of input is the upper-right coordinates of the plateau, the lower-left coordinates are assumed to be 0,0.
 
@@ -18,6 +26,12 @@ The position is made up of two integers and a letter separated by spaces, corres
 
 Each rover will be finished sequentially, which means that the second rover won’t start to move until the first one has finished moving.
 
-OUTPUT:
+### OUTPUT:
 
 The output for each rover should be its final co-ordinates and heading.
+
+## Usage
+
+Run the program with `npm start`  
+
+Sequence of inputs can be modified in file [inputs.js](./inputs.js) following the format described in the [INPUT](#input) section

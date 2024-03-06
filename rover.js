@@ -1,42 +1,42 @@
 //const marsRover = () => { throw "Not Implemented"; } 
 
 // a JS object that tells how to reorient a rover based on an initial orientation (i.e. N is north) and a rotation movement (i.e. L is a 90' rotation left)
-let howToReorient = {
-  "N": {  // initial orientation "N" North
-    "L": "W", // turning "L" left reorients rover to "W" west
-    "R": "E"  // turning "R" right reorients the rover "E" east
+const howToReorient = {
+  'N': {  // initial orientation "N" North
+    'L': 'W', // turning "L" left reorients rover to "W" west
+    'R': 'E'  // turning "R" right reorients the rover "E" east
   },
-  "W": {
-    "L": "S", "R": "N"
+  'W': {
+    'L': 'S', 'R': 'N'
   },
-  "S": {
-    "L": "E", "R": "W"
+  'S': {
+    'L': 'E', 'R': 'W'
   },
-  "E": {
-    "L": "N", "R": "S"
+  'E': {
+    'L': 'N', 'R': 'S'
   }
 }
 
-let howToDisplace = {
-  "N": {
-    "x": 0, "y": 1
+const howToDisplace = {
+  'N': {
+    'x': 0, 'y': 1
   },
-  "W": {
-    "x": -1, "y": 0
+  'W': {
+    'x': -1, 'y': 0
   },
-  "S": {
-    "x": 0, "y": -1
+  'S': {
+    'x': 0, 'y': -1
   },
-  "E": {
-    "x": 1, "y": 0
+  'E': {
+    'x': 1, 'y': 0
   }
 }
 
-let howToReorient180degrees = {
-  "N": "S",
-  "W": "E",
-  "S": "N",
-  "E": "W"
+const howToReorient180degrees = {
+  'N': 'S',
+  'W': 'E',
+  'S': 'N',
+  'E': 'W'
 }
 
 /**
@@ -45,32 +45,32 @@ let howToReorient180degrees = {
   It returns the final position and orientation (i.e. "\n1 2 W")
 */
 function execute(landingPosOrient, movements) {
-  let arrlandingPosOrient = landingPosOrient.split(" ")
+  const arrlandingPosOrient = landingPosOrient.split(' ')
   let roverPositionX = Number(arrlandingPosOrient[0])  // rover position x coordinate
-  let dimensionPlateauX = roverPositionX
+  const dimensionPlateauX = roverPositionX
   let roverPositionY = Number(arrlandingPosOrient[1])  // rover position y coordinate
-  let dimensionPlateauY = roverPositionY
-  let roverOrientation = (arrlandingPosOrient.length === 3) ? arrlandingPosOrient[2] : "" // rover orientation (N, E, S, W)
+  const dimensionPlateauY = roverPositionY
+  let roverOrientation = (arrlandingPosOrient.length === 3) ? arrlandingPosOrient[2] : '' // rover orientation (N, E, S, W)
 
   // move rove if any movement is passed
   if (movements) {
-    for (var i = 0; i < movements.length; i++) {
+    for (let i = 0; i < movements.length; i++) {
       //alert(str.charAt(i));
-      if (movements[i] === "L" || movements[i] === "R") {  // movement is a rotation
+      if (movements[i] === 'L' || movements[i] === 'R') {  // movement is a rotation
         roverOrientation = howToReorient[roverOrientation][movements[i]]
         
-      } else if (movements[i] === "M") {  // movement is a displacement
+      } else if (movements[i] === 'M') {  // movement is a displacement
         let roverNextPositionX = roverPositionX
         let roverNextPositionY = roverPositionY
-        roverNextPositionX += howToDisplace[roverOrientation]["x"]
-        roverNextPositionY += howToDisplace[roverOrientation]["y"]
+        roverNextPositionX += howToDisplace[roverOrientation]['x']
+        roverNextPositionY += howToDisplace[roverOrientation]['y']
 
         // check if next position would be out of the plateau
         if (roverNextPositionX > dimensionPlateauX || roverNextPositionY > dimensionPlateauY) {
           // turn the rover 180 degrees
           roverOrientation = howToReorient180degrees[roverOrientation]
-//         return `
-// out of plateau`
+          //return `
+          //out of plateau`
         } else {  // displace the rover safely
           roverPositionX = roverNextPositionX
           roverPositionY = roverNextPositionY
@@ -80,7 +80,7 @@ function execute(landingPosOrient, movements) {
   }
 
   // return final position and orientation
-  let finalPositionAndOrientation = `
+  const finalPositionAndOrientation = `
 ${roverPositionX} ${roverPositionY} ${roverOrientation}`
   return finalPositionAndOrientation
 }
